@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">My Fist App</string>
+    <string name="nome">Name</string>
+    <string name="butao">Button</string>
+    <string name="button_send">Jogar</string>
+    <string name="titulo">Jogo do Galo</string>
+    <string name="insere_o_teu_nick">Insere o teu nick</string>
+    <string name="jogador_1_nick">Jogador 1:</string>
+    <string name="jogador_2">Jogador 2:</string>
+    <string name="points">Pontos</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="px">X</string>
+    <string name="po">O</string>
+    <string name="nothing"></string>
+    <string name="zero">0</string>
+
+</resources>
