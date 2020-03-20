@@ -29,16 +29,16 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        player1 = intent.getStringExtra("PLAYER1");
-        player2 = intent.getStringExtra("PLAYER2");
+        p1 = intent.getStringExtra("PLAYER1");
+        p2 = intent.getStringExtra("PLAYER2");
 
 
         // Capture the layout's TextView and set the string as its text
         TextView textView2 = findViewById(R.id.textView2);
         TextView textView6 = findViewById(R.id.textView6);
 
-        textView2.setText(player1);
-        textView6.setText(player2);
+        textView2.setText(p1);
+        textView6.setText(p2);
 
     }
 
@@ -644,9 +644,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 if (but2s.equals("X")) {
                     Toast toast = Toast.makeText(getApplicationContext(), p1 + "ganhou!", duration);
                     toast.show();
-                    int res = Integer.parseInt(p1)+1;
-                    String ts=Integer.toString(res);
-                    edt3.setText(ts);
+                  //  int res = Integer.parseInt(p1)+1;
+                   // String ts=Integer.toString(res);
+                  //  edt3.setText(ts);
                 } else {
                     if (but2s.equals("O")) {
                         Toast toast = Toast.makeText(getApplicationContext(), p2 + "ganhou!", duration);
