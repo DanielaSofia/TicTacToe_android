@@ -10,33 +10,11 @@ import android.widget.Toast;
 
 public class DisplayMessageActivity extends AppCompatActivity {
 
-    int playersTurn =1;
-
-    TextView edt3 = findViewById(R.id.textView5);
-    TextView edt4 = findViewById(R.id.textView8);
-
-    Button but16 = findViewById(R.id.button16);
-    Button but23 =  findViewById(R.id.button23);
-    Button but25 =  findViewById(R.id.button25);
-    Button but22 =  findViewById(R.id.button22);
-    Button but17 =  findViewById(R.id.button17);
-    Button but2 =  findViewById(R.id.button2);
-    Button but19 =  findViewById(R.id.button19);
-    Button but18 = findViewById(R.id.button18);
-    Button but20 = findViewById(R.id.button20);
-
-    String p1 = edt3.getText().toString();
-    String p2 = edt4.getText().toString();
-    String but17s = but17.getText().toString();
-    String but16s = but16.getText().toString();
-    String but25s = but25.getText().toString();
-    String but23s = but23.getText().toString();
-    String but22s = but22.getText().toString();
-    String but2s = but2.getText().toString();
-    String but19s = but19.getText().toString();
-    String but18s = but18.getText().toString();
-    String but20s = but20.getText().toString();
-
+    int playersTurn = 1;
+    String p1,p2,player1,player2;
+    TextView edt3,edt4,textView2,textView6;
+    Button but16, but23, but25,but22,but17,but2,but19,but18, but20;
+    String but17s,but16s, but25s,but23s,but22s,but2s,but19s,but18s,but20s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,32 +23,79 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        p1 = intent.getStringExtra("PLAYER1");
-        p2 = intent.getStringExtra("PLAYER2");
+        player1 = intent.getStringExtra("PLAYER1");
+        player2 = intent.getStringExtra("PLAYER2");
 
 
         // Capture the layout's TextView and set the string as its text
-        TextView textView2 = findViewById(R.id.textView2);
-        TextView textView6 = findViewById(R.id.textView6);
+        textView2 = findViewById(R.id.textView2);
+        textView6 = findViewById(R.id.textView6);
 
-        textView2.setText(p1);
-        textView6.setText(p2);
+        textView2.setText(player1);
+        textView6.setText(player2);
 
     }
 
-    public void somaPontos(String jog){
+
+
+
+    public void somaPontos(String jogador){
+        but16.setEnabled(false);
+        but23.setEnabled(false);
+        but25.setEnabled(false);
+        but17.setEnabled(false);
+        but2.setEnabled(false);
+        but19.setEnabled(false);
+        but18.setEnabled(false);
+        but20.setEnabled(false);
+
+
+        //pontos
+        edt3 = findViewById(R.id.textView5);
+        edt4 = findViewById(R.id.textView8);
+        p1 = edt3.getText().toString();
+        p2 = edt4.getText().toString();
+
         int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(getApplicationContext(), jog + "ganhou!", duration);
+        Toast toast = Toast.makeText(getApplicationContext(), jogador + "ganhou!", duration);
         toast.show();
-        Integer res = Integer.parseInt(jog)+1;
-        String ts = Integer.toString(res);
+        if(jogador.equals(player1)){
 
-        if(jog.equals(p1)) edt3.setText(ts);
-        else edt4.setText(ts);
+
+            Integer res = Integer.parseInt(p1)+1;
+            String ts = Integer.toString(res);
+
+            edt3.setText(ts);
+        }
+        else{
+
+
+            Integer res = Integer.parseInt(p2)+1;
+            String ts = Integer.toString(res);
+
+            edt4.setText(ts);
+        }
     }
 
     public void onPlay16(View view){
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but16 = findViewById(R.id.button16);
+
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+
+        p1 = player1;
+        p2 = player2;
 
         if ((but16s.equals("X")) || but16s.equals("O")) {
 
@@ -118,6 +143,28 @@ public class DisplayMessageActivity extends AppCompatActivity {
     public void onPlay23(View view) {
 
 
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
+
+
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
+
+        p1 = player1;
+        p2 = player2;
+
         if ((but23s.equals("X")) || but23s.equals("O")) {
 
             //Horizontal
@@ -157,6 +204,29 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     public void onPlay25(View view) {
 
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
+
+
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
+
+        p1 = player1;
+        p2 = player2;
 
         if ((but25s.equals("X")) || but25s.equals("O")) {
 
@@ -194,30 +264,45 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     public void onPlay22(View view){
 
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
+
+
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
+
+        p1 = player1;
+        p2 = player2;
+
         if((but22s.equals("X")) || but22s.equals("O")) {
 
             //Horizontal
             if (but22s.equals(but17s) && (but17s.equals(but20s))) {
 
-                if (but22s.equals("X")) {
-                    somaPontos(p1);
-                } else {
-                    if (but22s.equals("O")) {
-                        somaPontos(p2);
-
-                    }
-                }
+                if (but22s.equals("X"))  somaPontos(p1);
+                 else  somaPontos(p2);
             }
 
             //vertical
             if (but22s.equals(but16s) && (but16s.equals(but2s))) {
 
-                if (but22s.equals("X")) {
-                    somaPontos(p1);
-                } else {
-                    if (but22s.equals("O")) {
-                        somaPontos(p2);
-                    }
+                if (but22s.equals("X")) somaPontos(p1);
+                else {
+                    if (but22s.equals("O")) somaPontos(p2);
                 }
             }
         }else {
@@ -235,13 +320,29 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     public void onPlay17(View view){
 
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
 
-        TextView edt3 = findViewById(R.id.textView5);
-        TextView edt4 = findViewById(R.id.textView8);
 
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
 
-
-        int duration = Toast.LENGTH_SHORT;
+        p1 = player1;
+        p2 = player2;
 
         if((but17s.equals("X")) || but17s.equals("O")) {
 
@@ -250,11 +351,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
                 if (but17s.equals("X")) {
                     somaPontos(p1);
-                } else {
-                    if (but17s.equals("O")) {
-                        somaPontos(p2);
-                    }
-                }
+                } else   somaPontos(p2);
             }
 
             //vertical
@@ -266,7 +363,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 } else {
                     if (but17s.equals("O")) {
                         somaPontos(p2);
-
                     }
                 }
             }
@@ -275,18 +371,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
             if (but16s.equals(but17s) && (but16s.equals(but19s))) {
 
                 if (but17s.equals("X")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), p1 + "ganhou!", duration);
-                    toast.show();
-                    int res = Integer.parseInt(p1)+1;
-                    String ts=Integer.toString(res);
-                    edt3.setText(ts);
+                    somaPontos(p1);
+
                 } else {
                     if (but17s.equals("O")) {
-                        Toast toast = Toast.makeText(getApplicationContext(), p2 + "ganhou!", duration);
-                        toast.show();
-                        int res = Integer.parseInt(p2)+1;
-                        String ts=Integer.toString(res);
-                        edt4.setText(ts);
+                        somaPontos(p2);
+
                     }
                 }
             }
@@ -295,18 +385,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
             if (but25s.equals(but17s) && (but17s.equals(but2s))) {
 
                 if (but17s.equals("X")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), p1 + "ganhou!", duration);
-                    toast.show();
-                    int res = Integer.parseInt(p1)+1;
-                    String ts=Integer.toString(res);
-                    edt3.setText(ts);
+                    somaPontos(p1);
+
                 } else {
                     if (but17s.equals("O")) {
-                        Toast toast = Toast.makeText(getApplicationContext(), p2 + "ganhou!", duration);
-                        toast.show();
-                        int res = Integer.parseInt(p2)+1;
-                        String ts=Integer.toString(res);
-                        edt4.setText(ts);
+                        somaPontos(p2);
+
                     }
                 }
             }
@@ -326,23 +410,38 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     public void onPlay20(View view){
 
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
 
-        TextView edt3 = findViewById(R.id.textView5);
-        TextView edt4 = findViewById(R.id.textView8);
 
-        int duration = Toast.LENGTH_SHORT;
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
+        p1 = player1;
+        p2 = player2;
+
 
         if((but20s.equals("X")) || but20s.equals("O")) {
 
             //Horizontal
             if (but20s.equals(but17s) && (but20s.equals(but22s))) {
 
-                if (but20s.equals("X")) {
-                    somaPontos(p1);
+                if (but20s.equals("X")) somaPontos(p1);
+                else somaPontos(p2);
 
-                } else {
-                        somaPontos(p2);
-                }
             }
 
             //vertical
@@ -354,7 +453,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 } else {
                     if (but20s.equals("O")) {
                         somaPontos(p2);
-
                     }
                 }
             }
@@ -372,12 +470,29 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     public void onPlay2(View view){
 
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
 
-        TextView edt3 = findViewById(R.id.textView5);
-        TextView edt4 = findViewById(R.id.textView8);
 
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
 
-        int duration = Toast.LENGTH_SHORT;
+        p1 = player1;
+        p2 = player2;
 
         if((but2s.equals("X")) || but2s.equals("O")) {
 
@@ -385,19 +500,13 @@ public class DisplayMessageActivity extends AppCompatActivity {
             if (but2s.equals(but18s) && (but18s.equals(but19s))) {
 
                 if (but2s.equals("X")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), p1 + "ganhou!", duration);
-                    toast.show();
-                    int res = Integer.parseInt(p1)+1;
-                    String ts=Integer.toString(res);
-                    edt3.setText(ts);
+                    somaPontos(p1);
+
                 } else {
-                    if (but2s.equals("O")) {
-                        Toast toast = Toast.makeText(getApplicationContext(), p2 + "ganhou!", duration);
-                        toast.show();
-                        int res = Integer.parseInt(p2)+1;
-                        String ts=Integer.toString(res);
-                        edt4.setText(ts);
-                    }
+
+                        somaPontos(p2);
+
+
                 }
             }
 
@@ -405,18 +514,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
             if (but2s.equals(but22s) && (but22s.equals(but16s))) {
 
                 if (but2s.equals("X")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), p1 + "ganhou!", duration);
-                    toast.show();
-                  //  int res = Integer.parseInt(p1)+1;
-                   // String ts=Integer.toString(res);
-                  //  edt3.setText(ts);
+                    somaPontos(p1);
+
                 } else {
                     if (but2s.equals("O")) {
-                        Toast toast = Toast.makeText(getApplicationContext(), p2 + "ganhou!", duration);
-                        toast.show();
-                        int res = Integer.parseInt(p2)+1;
-                        String ts=Integer.toString(res);
-                        edt4.setText(ts);
+                        somaPontos(p2);
+
                     }
                 }
             }
@@ -425,18 +528,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
             if (but25s.equals(but17s) && (but17s.equals(but2s))) {
 
                 if (but2s.equals("X")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), p1 + "ganhou!", duration);
-                    toast.show();
-                    int res = Integer.parseInt(p1)+1;
-                    String ts=Integer.toString(res);
-                    edt3.setText(ts);
+                    somaPontos(p1);
+
                 } else {
                     if (but2s.equals("O")) {
-                        Toast toast = Toast.makeText(getApplicationContext(), p2 + "ganhou!", duration);
-                        toast.show();
-                        int res = Integer.parseInt(p2)+1;
-                        String ts=Integer.toString(res);
-                        edt4.setText(ts);
+                        somaPontos(p2);
+
                     }
                 }
             }
@@ -454,6 +551,32 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
 
     public void onPlay18(View view){
+
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
+
+
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
+
+        edt3 = findViewById(R.id.textView5);
+         edt4 = findViewById(R.id.textView8);
+         p1 = edt3.getText().toString();
+         p2 = edt4.getText().toString();
 
         if((but18s.equals("X")) || but18s.equals("O")) {
 
@@ -494,6 +617,30 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
 
     public void onPlay19(View view){
+
+        but16 = findViewById(R.id.button16);
+        but23 =  findViewById(R.id.button23);
+        but25 =  findViewById(R.id.button25);
+        but22 =  findViewById(R.id.button22);
+        but17 =  findViewById(R.id.button17);
+        but2 =  findViewById(R.id.button2);
+        but19 =  findViewById(R.id.button19);
+        but18 = findViewById(R.id.button18);
+        but20 = findViewById(R.id.button20);
+
+
+        but17s = but17.getText().toString();
+        but16s = but16.getText().toString();
+        but25s = but25.getText().toString();
+        but23s = but23.getText().toString();
+        but22s = but22.getText().toString();
+        but2s = but2.getText().toString();
+        but19s = but19.getText().toString();
+        but18s = but18.getText().toString();
+        but20s = but20.getText().toString();
+
+        p1 = player1;
+        p2 = player2;
 
         //Horizontal
         if((but19s.equals("X")) || but19s.equals("O")) {
